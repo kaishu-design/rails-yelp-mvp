@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_024138) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_24_143046) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_024138) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image", default: "https://media.istockphoto.com/id/1446478827/photo/a-chef-is-cooking-in-his-restaurants-kitchen.jpg?s=612x612&w=0&k=20&c=jwKJmGErrLe2XsTWNYEEyiNicudYVA4j8jvnTiJdp58="
   end
 
   create_table "reviews", force: :cascade do |t|
