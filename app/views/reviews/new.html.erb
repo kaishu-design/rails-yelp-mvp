@@ -1,6 +1,20 @@
-<h1>Add a review</h1>
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">Add a Review</h2>
+  <h2 class="mb-4"> <%= @restaurant.name %> </h2>
+
+  <%= form_with model: [@restaurant, @review], local: true, class: "needs-validation" do |f| %>
+    <% [:rating, :content].each do |field| %>
+      <div class="mb-3">
+        <%= f.label field, field.to_s.humanize, class: "form-label" %>
+        <%= f.number_field field, class: "form-control", placeholder: field.to_s.humanize, required: true %>
+        <div class="form-text">Please enter your <%= field.to_s.humanize %>.</div>
+      </div>
+    <% end %>
+
+  <div class="d-grid">
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+  </div>
+  <% end %>
+
+</div>

@@ -1,8 +1,17 @@
-<h1>Add a restaurant</h1>
-<%= simple_form_for(@restaurant) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :category %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add a Review</h2>
+  <h2 class="mb-4"><%= @restaurant.name %></h2>
+
+  <%= form_with model: @restaurant, local: true, class: "needs-validation" do |f| %>
+    <% [:name, :address, :phone_number, :category].each do |field| %>
+      <div class="mb-3">
+        <%= f.label field, field.to_s.humanize, class: "form-label" %>
+        <%= f.text_field field, class: "form-control", placeholder: field.to_s.humanize, required: true %>
+      </div>
+    <% end %>
+
+    <div class="d-grid">
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+    </div>
+  <% end %>
+</div>
